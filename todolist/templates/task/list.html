@@ -1,0 +1,29 @@
+{%extends 'parent.html'%}
+{%block tit%}
+Tasks _ List
+{%endblock%}
+{%block header%}
+Tasks _ List
+{%endblock%}
+{%block content%}
+    {{tasks}}
+<h1>{{1 | add:2}}</h1>
+    <table width="100%" border="1">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>Actions</th>
+        </tr>
+        {%for task in tasks%}
+            <tr>
+                <td>{{task| first}}</td>
+                <td>{{task.1}}</td>
+                <td>
+                    <a href="{%url 'taskupdate' task.0 %}">Delete</a>
+                    <a href="{%url 'taskupdate' task.0 %}">update</a>
+                </td>
+            </tr>
+        {%endfor%}
+    </table>
+
+{%endblock%}
