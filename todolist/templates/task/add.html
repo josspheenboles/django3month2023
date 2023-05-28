@@ -6,5 +6,18 @@ Tasks _ ADD
 Tasks _ Header
 {%endblock%}
 {%block content%}
-Tasks _ <content></content>
+    <form method="post">
+        {%csrf_token%}
+        <input type="text" name="taskname">
+        </br>
+        <select name="catagory">
+            {%for cat in catagories%}
+                <option value="{{cat.id}}">{{cat.name}}</option>
+            {%endfor%}
+        </select>
+
+        </br>
+        <input type="submit" value="add">
+    </form>
+
 {%endblock%}

@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Tasks/',include('task.urls')),
     #route for my account app
+    path('List',userlist,name='userlist'),
     path('',Login,name='Login'),
     path('Logout',Logout,name='Logout'),
     path('Registration',Registration,name='Registration'),
