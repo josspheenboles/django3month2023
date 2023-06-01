@@ -45,7 +45,7 @@
                                     <form class="user" method="post">
                                         {%csrf_token%}
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="text" class="form-control form-control-user"
                                                  name='email' aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                         </div>
@@ -77,8 +77,9 @@
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="{%url 'RegistrationAdmin'%}">Create an admin Account!</a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

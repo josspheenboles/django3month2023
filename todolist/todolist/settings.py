@@ -15,7 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -80,13 +80,13 @@ WSGI_APPLICATION = 'todolist.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         #'NAME': BASE_DIR / 'db.sqlite3',
         'NAME':'monifia',#must been createdd
-        'USER':'postgres',
-        'PASSWORD':'qw12QW!@',
+        'USER':'root',
+        'PASSWORD':'',
         'HOST':'127.0.0.1',
-        'PORT':5432
+        'PORT':3306
 
     }
 }

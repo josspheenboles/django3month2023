@@ -1,8 +1,8 @@
 from django.urls import path
 from .views import *
 urlpatterns = [
-    path('',CatagoryList,name='CatagoryList'),
-    path('Add',CatagoryAdd,name='CatagoryAdd'),
-    path('Update/<int:id>', Catagoryupdate, name='Catagoryupdate'),
-    path('Delete/<int:ID>', CatagoryDelete, name='CatagoryDelete'),
+    path('',Listcatagory.as_view(),name='CatagoryList'),
+    path('Add',Catagoryadding.as_view(),name='CatagoryAdd'),
+    path('Update/<int:id>', Listcatagory.as_view(), name='Catagoryupdate'),
+    path('Delete/<int:ID>', Listcatagory.as_view(), name='CatagoryDelete'),
     ]

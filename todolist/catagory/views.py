@@ -1,12 +1,26 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
+from django.views import View
+from .form import *
+from django.views.generic import ListView,CreateView
 # Create your views here.
-def CatagoryList(requ):
-    return HttpResponse('CatagoryList')
-def CatagoryAdd(requ):
-    return render(requ,'catagory/add.html')#HttpResponse('CatagoryAdd')
-def Catagoryupdate(requ,id):
-    return HttpResponse('Catagoryupdate')
+class Catagoryadding(CreateView):
+    model = Catagory
+    template_name = 'catagory/add.html'
+    fields='__all__'
 
-def CatagoryDelete(requ,ID):
-    return HttpResponse('CatagoryDelete')
+    def form_valid(self, form):
+        return  HttpResponseRedirect('/Catagory')
+
+class Listcatagory(ListView):
+    model = Catagory
+class Addcatgaory(View):
+    def get(self,request):
+        context={}
+        context['form']=CatagoryForm()
+        return  render(request,'catagory/add.html',context)
+    def post(self,request):
+        f=CatagoryForm(request.POST)
+        if(f.is_bound and f.is_valid()):
+            f.save()
+        return HttpResponse('<h1>post</h1>')

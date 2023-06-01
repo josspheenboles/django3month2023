@@ -1,0 +1,4 @@
+function mytask()
+{
+    alert('ok');
+}
